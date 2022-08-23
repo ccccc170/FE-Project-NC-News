@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  text-align: center;
+  color: aliceblue;
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+h2 {
+  text-align: center;
+  color: aliceblue;
+  font-size: 15px;
+  padding-bottom: 3px;
+}
+
+header {
+  background-color: dodgerblue;
+  margin-top: -23px;
+}
