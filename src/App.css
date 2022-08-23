@@ -55,3 +55,22 @@ header {
   background-color: dodgerblue;
   margin-top: -23px;
 }
+
+.main_articles_list {
+  list-style: none;
+  margin-left: -15px;
+}
+
+.votes_and_comments {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.votes_and_comments_child1 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.votes_and_comments_child2 {
+  display: inline-block;
+}
