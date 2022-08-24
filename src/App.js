@@ -13,6 +13,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Articles />} />
+          <Route path="/:topic" element={<Articles />} />
           <Route path="/user" element={<User />} />
         </Routes>
       </>
