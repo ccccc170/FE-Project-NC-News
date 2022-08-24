@@ -61,11 +61,6 @@ header {
   margin-left: -15px;
 }
 
-.votes_and_comments {
-  white-space: nowrap;
-  overflow-x: auto;
-}
-
 .votes_and_comments_child1 {
   display: inline-block;
   margin-right: 10px;
