@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getArticleById } from "../utils/api";
+import { getArticleById, updateVotes } from "../utils/api";
 
 const Article = () => {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
+  const [votes, setVotes] = useState(0);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -12,7 +13,23 @@ const Article = () => {
       setArticle(fetchedArticle);
       setLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, article.votes]);
+
+  const incrementClick = (increment) => {
+    setVotes((currVotes) => {
+      return currVotes + increment;
+    });
+    updateVotes(increment, article_id)
+      .then((article) => {
+        setArticle(article);
+        setVotes(0);
+      })
+      .catch((err) => {
+        console.log(err);
+        window.alert("Something went wrong, please try again!");
+        setVotes(0);
+      });
+  };
 
   return loading ? (
     <h3>loading...</h3>
@@ -25,8 +42,26 @@ const Article = () => {
       <h5>posted: {article.created_at}</h5>
       <p>{article.body}</p>
       <div className="votes_and_comments">
-        <h6 className="votes_and_comments_child1">votes: {article.votes}</h6>{" "}
-        <h6 className="votes_and_comments_child2">
+        <h6 className="votes_and_comments_child1">
+          votes: {votes + article.votes}
+        </h6>
+        <button
+          onClick={() => {
+            incrementClick(1);
+          }}
+          className="votes_and_comments_child2"
+        >
+          👍
+        </button>
+        <button
+          onClick={() => {
+            incrementClick(-1);
+          }}
+          className="votes_and_comments_child3"
+        >
+          👎
+        </button>
+        <h6 className="votes_and_comments_child4">
           comments: {article.comment_count}
         </h6>
       </div>

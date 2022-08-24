@@ -25,3 +25,13 @@ export const getArticleById = (article_id) => {
       return response.data.article;
     });
 };
+
+export const updateVotes = (inc_votes, article_id) => {
+  return axios
+    .patch(`https://craigs-nc-news.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes,
+    })
+    .then((response) => {
+      return response.data.article;
+    });
+};
