@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getArticles, getTopics } from "../utils/api";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -16,11 +16,7 @@ const Articles = () => {
   }, []);
 
   useEffect(() => {
-    let params;
-    if (topic) {
-      params = { topic: topic };
-    }
-    getArticles(params).then((fetchedArticles) => {
+    getArticles(topic).then((fetchedArticles) => {
       setArticles(fetchedArticles);
     });
   }, [topic]);
@@ -59,7 +55,9 @@ const Articles = () => {
         {articles.map((article) => {
           return (
             <li key={article.article_id}>
-              <h3>{article.title}</h3>
+              <Link to={"/articles/" + article.article_id}>
+                <h3>{article.title}</h3>
+              </Link>
               <h4>topic: {article.topic}</h4>
               <h5>written by: {article.author}</h5>
               <h5>posted: {article.created_at}</h5>
