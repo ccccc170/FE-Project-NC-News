@@ -4,15 +4,19 @@ import { getArticleById } from "../utils/api";
 
 const Article = () => {
   const [article, setArticle] = useState({});
+  const [loading, setLoading] = useState(true);
   const { article_id } = useParams();
 
   useEffect(() => {
     getArticleById(article_id).then((fetchedArticle) => {
       setArticle(fetchedArticle);
+      setLoading(false);
     });
-  }, []);
+  }, [article_id]);
 
-  return (
+  return loading ? (
+    <h3>loading...</h3>
+  ) : (
     <section className="single_article">
       <Link to="/">Back</Link>
       <h3 className="single_article_title">{article.title}</h3>

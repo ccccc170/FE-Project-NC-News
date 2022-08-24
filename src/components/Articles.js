@@ -40,6 +40,7 @@ const Articles = () => {
         {topics.map((topic) => {
           return (
             <option
+              key={topic.slug}
               value={topic.slug}
               onClick={() => {
                 navigateTopic(topic.slug);
