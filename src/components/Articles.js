@@ -3,6 +3,7 @@ import { getArticles, getTopics } from "../utils/api";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 const Articles = () => {
+  const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const Articles = () => {
   useEffect(() => {
     getArticles(topic).then((fetchedArticles) => {
       setArticles(fetchedArticles);
+      setLoading(false);
     });
   }, [topic]);
 
@@ -25,7 +27,9 @@ const Articles = () => {
     navigate(`/${topicName}`);
   };
 
-  return (
+  return loading ? (
+    <h3>loading...</h3>
+  ) : (
     <section>
       <label htmlFor="topic-selector">Filter by topic:</label>
       <select name="topic-selector" id="topic-list">
