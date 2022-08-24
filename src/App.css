@@ -61,6 +61,14 @@ header {
   margin-left: -15px;
 }
 
+.single_article {
+  margin-left: 15px;
+}
+
+.single_article_title {
+  font-size: 35px;
+}
+
 .votes_and_comments_child1 {
   display: inline-block;
   margin-right: 10px;
