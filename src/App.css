@@ -76,4 +76,14 @@ header {
 
 .votes_and_comments_child2 {
   display: inline-block;
+  margin-right: 10px;
+}
+
+.votes_and_comments_child3 {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.votes_and_comments_child4 {
+  display: inline-block;
 }
