@@ -6,6 +6,7 @@ const Article = () => {
   const [article, setArticle] = useState({});
   const [loading, setLoading] = useState(true);
   const [votes, setVotes] = useState(0);
+  const [hasClicked, setHasClicked] = useState(false);
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -13,22 +14,17 @@ const Article = () => {
       setArticle(fetchedArticle);
       setLoading(false);
     });
-  }, [article_id, article.votes]);
+  }, [article_id]);
 
   const incrementClick = (increment) => {
     setVotes((currVotes) => {
       return currVotes + increment;
     });
-    updateVotes(increment, article_id)
-      .then((article) => {
-        setArticle(article);
-        setVotes(0);
-      })
-      .catch((err) => {
-        console.log(err);
-        window.alert("Something went wrong, please try again!");
-        setVotes(0);
-      });
+    setHasClicked(true);
+    updateVotes(increment, article_id).catch((err) => {
+      window.alert("Something went wrong, please try again!");
+      setVotes(0);
+    });
   };
 
   return loading ? (
@@ -50,6 +46,7 @@ const Article = () => {
             incrementClick(1);
           }}
           className="votes_and_comments_child2"
+          disabled={hasClicked}
         >
           👍
         </button>
@@ -58,6 +55,7 @@ const Article = () => {
             incrementClick(-1);
           }}
           className="votes_and_comments_child3"
+          disabled={hasClicked}
         >
           👎
         </button>
