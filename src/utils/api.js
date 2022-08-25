@@ -20,7 +20,7 @@ export const getTopics = () => {
 
 export const getArticleById = (article_id) => {
   return axios
-    .get(`https://craigs-nc-news.herokuapp.com/api/articles/${article_id}`, {})
+    .get(`https://craigs-nc-news.herokuapp.com/api/articles/${article_id}`)
     .then((response) => {
       return response.data.article;
     });
@@ -33,5 +33,15 @@ export const updateVotes = (inc_votes, article_id) => {
     })
     .then((response) => {
       return response.data.article;
+    });
+};
+
+export const getCommentsByArticleId = ({ article_id }) => {
+  return axios
+    .get(
+      `https://craigs-nc-news.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then((response) => {
+      return response.data.comments;
     });
 };

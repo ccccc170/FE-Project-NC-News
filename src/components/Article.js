@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getArticleById, updateVotes } from "../utils/api";
+import Comments from "./Comments";
 
 const Article = () => {
   const [article, setArticle] = useState({});
@@ -63,6 +64,7 @@ const Article = () => {
           comments: {article.comment_count}
         </h6>
       </div>
+      <Comments article_id={article_id} />
     </section>
   );
 };
