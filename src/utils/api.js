@@ -45,3 +45,14 @@ export const getCommentsByArticleId = ({ article_id }) => {
       return response.data.comments;
     });
 };
+
+export const postComment = (newComment, { article_id }) => {
+  return axios
+    .post(
+      `https://craigs-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
+      newComment
+    )
+    .then((response) => {
+      return response.data.comment;
+    });
+};
