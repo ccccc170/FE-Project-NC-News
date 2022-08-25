@@ -56,6 +56,20 @@ header {
   margin-top: -23px;
 }
 
+.comment {
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.comment-author {
+  color: dodgerblue;
+}
+
 .main_articles_list {
   list-style: none;
   margin-left: -15px;
