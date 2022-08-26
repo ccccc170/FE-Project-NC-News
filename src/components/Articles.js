@@ -7,7 +7,12 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
-
+  const [sortBy, setSortBy] = useState("created_at");
+  const [sortOrder, setSortOrder] = useState("desc");
+  const [params, setParams] = useState({
+    sort_by: "created_at",
+    order: "desc",
+  });
   const { topic } = useParams();
 
   useEffect(() => {
@@ -17,44 +22,77 @@ const Articles = () => {
   }, []);
 
   useEffect(() => {
-    getArticles(topic).then((fetchedArticles) => {
+    if (topic) {
+      params.topic = topic;
+    }
+    getArticles(params).then((fetchedArticles) => {
       setArticles(fetchedArticles);
       setLoading(false);
     });
-  }, [topic]);
+  }, [topic, params]);
 
   const navigateTopic = (topicName) => {
     navigate(`/${topicName}`);
+  };
+
+  const handleSortBy = (event) => {
+    setSortBy(event.target.value);
+  };
+
+  const handleSortOrder = (event) => {
+    setSortOrder(event.target.value);
+  };
+
+  const handleSortClick = () => {
+    setParams({ sort_by: sortBy, order: sortOrder });
   };
 
   return loading ? (
     <h3>loading...</h3>
   ) : (
     <section>
-      <label htmlFor="topic-selector">Filter by topic:</label>
-      <select name="topic-selector" id="topic-list">
-        <option
-          value="All topics"
-          onClick={() => {
-            navigateTopic("");
-          }}
-        >
-          All topics
-        </option>
-        {topics.map((topic) => {
-          return (
-            <option
-              key={topic.slug}
-              value={topic.slug}
-              onClick={() => {
-                navigateTopic(topic.slug);
-              }}
-            >
-              {topic.slug}
-            </option>
-          );
-        })}
-      </select>
+      <div className="topic-filter">
+        <label htmlFor="topic-selector">Filter by topic:</label>
+        <select name="topic-selector" id="topic-list">
+          <option
+            value="All topics"
+            onClick={() => {
+              navigateTopic("");
+            }}
+          >
+            All topics
+          </option>
+          {topics.map((topic) => {
+            return (
+              <option
+                key={topic.slug}
+                value={topic.slug}
+                onClick={() => {
+                  navigateTopic(topic.slug);
+                }}
+              >
+                {topic.slug}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className="sort-by-and-order">
+        <label htmlFor="sort-by-selector">Sort articles by:</label>
+        <select name="sort-by-selector" onChange={handleSortBy}>
+          <option value="created_at">date</option>
+          <option value="comment_count">comment count</option>
+          <option value="votes">votes</option>
+        </select>
+        <label htmlFor="order-selector">Order articles:</label>
+        <select onChange={handleSortOrder}>
+          <option value="desc">Descending</option>
+          <option value="asc">Ascending</option>
+        </select>
+        <button onClick={handleSortClick} className="sort-button">
+          Sort
+        </button>
+      </div>
 
       <ul className="main_articles_list">
         {articles.map((article) => {
