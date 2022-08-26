@@ -70,9 +70,19 @@ header {
   color: dodgerblue;
 }
 
+.login-button {
+  float: right;
+  margin-right: 10px;
+}
+
 .main_articles_list {
   list-style: none;
   margin-left: -15px;
+}
+
+.my-profile-link {
+  float: right;
+  margin-right: 10px;
 }
 
 .single_article {
