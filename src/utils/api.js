@@ -1,9 +1,9 @@
 const axios = require("axios");
 
-export const getArticles = (topic) => {
+export const getArticles = (params) => {
   return axios
     .get("https://craigs-nc-news.herokuapp.com/api/articles", {
-      params: { topic: topic },
+      params,
     })
     .then((response) => {
       return response.data.articles;
