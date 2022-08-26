@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getCommentsByArticleId, postComment } from "../utils/api";
+import {
+  deleteComment,
+  getCommentsByArticleId,
+  postComment,
+} from "../utils/api";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
@@ -54,6 +58,16 @@ const Comments = (article_id) => {
     }
   };
 
+  const handleDelete = (event, comment_id) => {
+    event.preventDefault();
+    setComments((currComments) => {
+      return currComments.filter((currCom) => {
+        return currCom.comment_id !== comment_id;
+      });
+    });
+    deleteComment(comment_id);
+  };
+
   return (
     <section>
       <h4>Comments:</h4>
@@ -95,6 +109,19 @@ const Comments = (article_id) => {
             <h6>Posted: {comment.created_at}</h6>
             <p>{comment.body}</p>
             <h6>votes: {comment.votes}</h6>
+            {comment.author === user.username ? (
+              <div className="delete-comment-section">
+                <label htmlFor="delete-button">Delete comment:</label>
+                <button
+                  id="delete-button"
+                  onClick={(event) => {
+                    handleDelete(event, comment.comment_id);
+                  }}
+                >
+                  x
+                </button>
+              </div>
+            ) : null}
           </div>
         );
       })}
