@@ -70,6 +70,14 @@ header {
   color: dodgerblue;
 }
 
+.error-page-h1 {
+  color: dodgerblue;
+}
+
+.error-page-h2 {
+  color: dodgerblue;
+}
+
 .login-button {
   float: right;
   margin-right: 10px;

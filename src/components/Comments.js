@@ -58,14 +58,18 @@ const Comments = (article_id) => {
     }
   };
 
-  const handleDelete = (event, comment_id) => {
+  const handleDelete = (event, comment) => {
     event.preventDefault();
     setComments((currComments) => {
       return currComments.filter((currCom) => {
-        return currCom.comment_id !== comment_id;
+        return currCom.comment_id !== comment.comment_id;
       });
     });
-    deleteComment(comment_id);
+    deleteComment(comment.comment_id).catch((err) => {
+      setComments((currComments) => {
+        return [comment, ...currComments];
+      });
+    });
   };
 
   return (
@@ -115,7 +119,7 @@ const Comments = (article_id) => {
                 <button
                   id="delete-button"
                   onClick={(event) => {
-                    handleDelete(event, comment.comment_id);
+                    handleDelete(event, comment);
                   }}
                 >
                   x

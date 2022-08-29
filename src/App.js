@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import User from "./components/User";
 import Login from "./components/Login";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState("Logged Out");
@@ -18,6 +19,7 @@ function App() {
           <Header />
           <Nav />
           <Routes>
+            <Route path="*" element={<ErrorPage />} />
             <Route path="/" element={<Articles />} />
             <Route path="/:topic" element={<Articles />} />
             <Route path="/articles/:article_id" element={<Article />} />

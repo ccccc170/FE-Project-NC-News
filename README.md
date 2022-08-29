@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+**NC News**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Hosted version**:
 
-## Available Scripts
+So far I have been unable to host my website.
 
-In the project directory, you can run:
+This project is intended to be linked with another project which acts as a backend that handles the api requests made by users. This project can be found here:
 
-### `npm start`
+repository: https://github.com/ccccc170/BE-Project-NC-News
+hosted version: https://craigs-nc-news.herokuapp.com/api
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Project Summary:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project is the front-end for a news articles and blogging website. Users of the website are able to view news articles made by other users as well as post comments and vote on the articles. When viewing the articles, users are able to filter and sort them as well. Some of the functionality, such as posting and deleting comments require a user to be logged on. The website features a log in page where users are able to sign ina as a pre-defined account to access these features.
 
-### `npm test`
+**Minimum node version:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Ensure that this version of Nodejs is installed to run this project:
 
-### `npm run build`
+- node v18.2.0
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Installing dependencies:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+he follwoing dependencies should be installed in order to ensure this project can be used:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- @testing-library/jest-dom v5.16.5
+- @testing-library/react v13.3.0
+- @testing-library/user-event v13.5.0
+- axios v0.27.2
+- react v18.2.0
+- react-dom v18.2.0
+- react-router-dom v6.3.0
+- react-scripts v5.0.1
+- web-vitals v^2.1.4
 
-### `npm run eject`
+**Cloning this project:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This project caan be forked and cloned from here: https://github.com/ccccc170/FE-Project-NC-News
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Running this project:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+In order to run this project, first clone the project repository from the link above. Do this by copying the HTTPS url from the repository page and enter this link into the directory you want to keep it in. Once you have done this, change directory into the newly created project directory and open it with your text-editor or IDE using the following commands:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`cd` followed by the name of the project directory
+`code .`
 
-## Learn More
+Once opened, use the following command to run the project via localhost:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm start`
