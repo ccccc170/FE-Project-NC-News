@@ -1,4 +1,4 @@
-**NC News** token
+**NC News**
 
 **Hosted version**:
 
