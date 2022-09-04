@@ -4,7 +4,7 @@
 
 A hosted version of this project can be found here: https://craigs-nc-news.netlify.app
 
-This project is intended to be linked with another project which acts as a backend that handles the api requests made by users. This project can be found here:
+This project is intended to be linked with another project which acts as a back-end that handles the APU requests made by users. This project can be found here:
 
 repository: https://github.com/ccccc170/BE-Project-NC-News
 hosted version: https://craigs-nc-news.herokuapp.com/api
